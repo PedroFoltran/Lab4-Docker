@@ -17,5 +17,17 @@ def user(username):
 def post(post_id):	
 	return "Post %d" % post_id
 
+@app.route("/palindrome/<palin>")
+def palin(palin):
+	phrase = palin
+	phraseInverted = phrase[::-1]
+	phrase = phrase.upper()
+	phraseInverted = phraseInverted.upper()
+
+	if (phrase == phraseInverted):
+  		return ("TRUE")
+	else:
+  		return ("FALSE")
+	
 if __name__ == "__main__":
     app.run(host="0.0.0.0",debug=True)
